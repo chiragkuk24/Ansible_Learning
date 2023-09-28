@@ -1,0 +1,6 @@
+---
+- name: working with modules
+  hosts: all
+  tasks:
+    - name: command modules
+      command:  uptime
