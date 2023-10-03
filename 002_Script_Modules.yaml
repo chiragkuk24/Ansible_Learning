@@ -1,0 +1,22 @@
+##Whenever we want to execute a python script to all the servers
+---
+- name: working with modules
+  hosts: all
+  tasks:
+    - name: command modules
+      command:  uptime
+    - name: copy hosts file
+      copy:
+        src: /etc/hosts
+        dest: /etc/hosts
+##User should have a Script named as myloop.py in the same folder 
+    - name: using Script module
+      script: ./myloop.py
+##We are storing the output in the variable name myscript_output    
+      register: myscript_output
+    - name: Printing Data 
+##Under the debug module we are printing the stdoutlines and third index
+      debug: msg="{{myscript_output.stdout_lines[2]}}"
+##Storing the value to a varaible
+    - name: storing the value to a variable
+      set_fact: msg="{{myscript_output.stdout_lines[2]}}"
