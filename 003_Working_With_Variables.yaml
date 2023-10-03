@@ -1,0 +1,23 @@
+#We can define 4 types of Variables in Ansible
+#vars
+#vars_files
+#host_vars
+#group_vars
+
+
+---
+  - name: woring with Variables
+    hosts: all
+    vars:
+      myval1: 2000
+      subject: "ansible"
+    vars_files:
+      - var_values_file.yaml
+    tasks:
+      - name: printing values
+        command: echo "{{ myval1 }},{{ subject }}" 
+      - name: printing values of var_values_file
+        command: echo "{{ course }}" 
+        ##Before this make sure that there is a folder named host_vars
+      - name: print values of host_vars section
+        command: echo "apache version is {{ apache_version }}"
