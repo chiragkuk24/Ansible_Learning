@@ -4,3 +4,7 @@
   tasks:
     - name: command modules
       command:  uptime
+    - name: copy hosts file
+      copy:
+        src: /etc/hosts
+        dest: /etc/hosts
