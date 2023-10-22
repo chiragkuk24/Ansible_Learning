@@ -1,0 +1,10 @@
+---
+-  name: working with conditions & operators
+   hosts: Node-1
+   tasks:
+        - name: working with AND operator
+          command: echo "Hi AND condition is working fine"
+          when: ansible_distribution == "Amazon" and ansible_os_family == "RedHat"
+        - name: working with OR operator
+          command: echo "Hi OR condition is working fine"
+          when: ansible_distribution == "Amazon" or ansible_os_family == "Redhat"
