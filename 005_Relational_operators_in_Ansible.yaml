@@ -1,0 +1,9 @@
+---
+- name: working with relational operators 
+  hosts: Node-1
+  vars: 
+    myval: 9
+  tasks:
+       - name: relational operators
+         command: echo "myval value s {{ myval }}"
+         when: myval <= 10
