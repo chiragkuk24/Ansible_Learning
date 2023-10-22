@@ -21,3 +21,6 @@
         ##Before this make sure that there is a folder named host_vars
       - name: print values of host_vars section
         command: echo "apache version is {{ apache_version }}"
+        ##Before this make sure that there is a folder named group_vars
+      - name: printing values of group_vars secton  
+        command: echo "My subjects are calling {{ subjects }}"
