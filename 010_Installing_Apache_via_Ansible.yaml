@@ -1,0 +1,25 @@
+---
+- name: Installing Apache
+  hosts: Node-1
+  tasks:
+    - name: task1 Installing Apache
+      yum: 
+        name: httpd
+        state: latest
+    - name: Enable service httpd
+      systemd:
+        name: httpd
+        enabled: true
+    - name: Copy file with owner and permissions
+      copy:    
+        src: ./index.html
+        dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+      notify: Restart Apache
+  handlers:
+    - name: Restart Apache
+      systemd:
+        state: restarted 
+        daemon_reload: true
+        name: httpd

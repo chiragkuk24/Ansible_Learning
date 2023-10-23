@@ -1,0 +1,10 @@
+---
+- name: working with special cases
+  serial: 1
+  hosts: all
+  tasks:
+      - name: gather server ipaddress & name
+        shell: "uptime; uname -a"
+
+      - name: gather ipaddress
+        shell: "hostname -i"
