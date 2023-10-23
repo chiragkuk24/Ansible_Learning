@@ -1,0 +1,9 @@
+---
+- name: working with special cases
+  hosts: Node-1
+  tasks:
+      - name: working with script
+        script: ./myscript.sh
+        ignore_errors: true
+      - name: printing my data
+        command: echo "This is how ignore_case works"  
