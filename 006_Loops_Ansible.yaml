@@ -1,0 +1,13 @@
+---
+- name: working with loops
+  hosts: Node-1
+  tasks:
+      - name: printing data
+        command: echo "my element value is {{ item }}"
+        with_items: [10,20,30,40,50]
+      - name: working with with_sequence
+        command: echo "my element value is {{ item }}"
+        with_sequence: start=1 end=5
+      - name: working with with_dict
+        command: echo "my key is {{ item.key }} && my value is {{ item.value }}"
+        with_dict: "{{ ansible_default_ipv4 }}"
